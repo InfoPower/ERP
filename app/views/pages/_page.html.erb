@@ -1,0 +1,10 @@
+<ul>
+  <li id="Parent1"><a><%= @pagename %></a>
+    <ul>
+          
+            <% @parent = 1 %>
+            <%= render :partial => "pages/subpage", :object => @parent %> 
+    </ul>
+  </li>
+</ul>
+          

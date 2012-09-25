@@ -1,0 +1,20 @@
+
+<% fpages = Page.where(:parent_id => subpage) %>
+            <% fpages.each do |spages| %>
+              
+                <% level = Page.where(:parent_id => spages.id).count %>
+                <% if level == 0 %>
+                  <% url = "http://localhost:3000/sforms/" + spages.name %>
+                  <% idname = "Child" + spages.id.to_s %>
+                  <li id=<%= idname %> href=<%= url %>><a href=<%= url %>><%= spages.name %></a></li>
+                  
+                <% else %>
+                  <% idname = "Parent" + spages.id.to_s %>
+                  <li id=<%= idname %>><a><%= spages.name %></a>
+                  <ul>
+                  <%= render :partial => "pages/subpage", :object => spages.id %>
+                  </ul>
+                  </li>
+                <% end %>
+              
+            <% end %>

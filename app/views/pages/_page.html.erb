@@ -1,8 +1,11 @@
 <ul>
-  <li id="Parent1"><a><%= @pagename %></a>
+<% apages = Page.where(:parent_id => nil) %>
+            <% apages.each do |apage| %>
+  <li id="Parent1"><a><%= apage.name %></a>
     <ul>
           
-            <% @parent = 1 %>
+            <% @parent = apage.id %>
+       <% end %>
             <%= render :partial => "pages/subpage", :object => @parent %> 
     </ul>
   </li>

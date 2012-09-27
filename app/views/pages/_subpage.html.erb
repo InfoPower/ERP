@@ -4,7 +4,7 @@
               
                 <% level = Page.where(:parent_id => spages.id).count %>
                 <% if level == 0 %>
-                  <% url = "http://localhost:3000/sforms/" + spages.name %>
+                  <% url = root_path + "sforms/" + spages.name %>
                   <% idname = "Child" + spages.id.to_s %>
                   <li id=<%= idname %> href=<%= url %>><a href=<%= url %>><%= spages.name %></a></li>
                   

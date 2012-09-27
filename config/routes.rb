@@ -13,6 +13,14 @@ Infotree::Application.routes.draw do
 
   get "sforms/CRM001"
 
+  get "sforms/MNT"
+
+  get "sforms/BOM"
+
+  get "sforms/ACR"
+
+  get "sforms/APR"
+
   resources :pages
 
   # The priority is based upon order of creation:

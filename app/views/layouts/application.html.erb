@@ -15,24 +15,29 @@
                   "cookies" : { "save_selected": false}
           })
         .bind("select_node.jstree", function (event, data) {
+	    var loc = data.rslt.obj.attr("href");
+            window.location = loc;
+	           
             var parid = '#' + data.rslt.obj.attr("id");
             var c = data.rslt.obj.attr("id").substr(0,1);
-            var loc = data.rslt.obj.attr("href");
-	           
-            if (c == "C")
-             {
-             
-              window.location = loc;
             
-         
-        //     window.open(loc);
-             }
-           else
-		{
-                
-              $('#menu').jstree("toggle_node",parid);
-
-		}
+		
+		
+//            if (c == "C")
+//             {
+//             
+//              window.location = loc;
+//            
+//         
+//                 }
+//           else
+//		{
+//
+//                
+//              $('#menu').jstree("toggle_node",parid);
+//              
+//
+//		}
             
 	    
         })

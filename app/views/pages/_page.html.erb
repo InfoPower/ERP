@@ -2,13 +2,13 @@
   <% apages = Page.where(:parent_id => nil) %>
   <% apages.each do |apage| %>
     <% url = root_path + "welcome/index" %>
-    <li id="Parent1" href=<%= url %>><a href=<%= url %>><%= apage.name %></a>
-    <ul>
-          
+    <% idname = "Parent" + apage.id.to_s %>
+    <li id=<%= idname %> class="h" href=<%= url %>><a href=<%= url %> ><%= apage.name %></a>
+      <ul>
         <% @parent = apage.id %>
-       <% end %>
-       <%= render :partial => "pages/subpage", :object => @parent %> 
-    </ul>
-  </li>
+        <%= render :partial => "pages/subpage", :object => @parent %> 
+      </ul>
+    </li>
+  <% end %>
 </ul>
           

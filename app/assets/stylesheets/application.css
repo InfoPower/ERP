@@ -87,6 +87,10 @@ background: #9C9;
 color: white;
 }
 
+#submenu
+{
+display:none;
+}
 
 
 /*

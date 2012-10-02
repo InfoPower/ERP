@@ -21,6 +21,48 @@ Infotree::Application.routes.draw do
 
   get "sforms/APR"
 
+  get "sforms/ABC400"
+
+  get "sforms/ACR400"
+
+  get "sforms/APA400"
+
+  get "sforms/BOM400"
+
+  get "sforms/CAP400"
+
+  get "sforms/COS400"
+
+  get "sforms/DEC400"
+
+  get "sforms/EMT400"
+
+  get "sforms/FAS400"
+
+  get "sforms/FOR400"
+
+  get "sforms/FGL400"
+
+  get "sforms/MNT400"
+
+  get "sforms/MPS400"
+
+  get "sforms/MRP400"
+
+  get "sforms/OEI400"
+
+  get "sforms/INV400"
+
+  get "sforms/SFW400"
+
+  get "sforms/PUR400"
+
+  get "sforms/REW400"
+
+  get "sforms/GMC400"
+
+  get "sforms/QAS400"
+
   resources :pages
 
   # The priority is based upon order of creation:

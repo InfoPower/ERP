@@ -1,0 +1,13 @@
+<ul>
+<% fpages = Page.all %>
+            <% fpages.each do |spages| %>
+              
+                
+		
+                  <% idname = spages.id.to_s %>
+                  <li id=<%= idname %> class="r"><a><%= spages.content %></a></li>
+                  
+             
+              
+            <% end %>
+</ul>

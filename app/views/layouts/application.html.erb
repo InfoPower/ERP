@@ -10,6 +10,27 @@
       
   $(document).ready(function(){
 
+$("li.h").hover(
+      function () {
+     //   $(this).append($("<span>***</span>"));
+         var t = $(this).attr('id');
+         if (t.substr(0,1) == "C") {
+            var l = t.substr(5);
+        		}
+         else
+           {
+            var l = t.substr(6);
+           }
+          var x = 'li.#' + l;
+         $(this).prop('title', $(x).text());
+      //   alert($(x).text());
+      }, 
+      function () {
+        $(this).find("span:last").remove();
+      }
+    );
+
+
     $("#menu")
         .jstree({ "plugins" : ["themes","html_data","ui","cookies"],
                   "cookies" : { "save_selected": false}
@@ -48,7 +69,7 @@
  </head>
   <body id="store" >
     <div id="banner" >
-      <%= image_tag("logo.png") %>
+      <%= image_tag("info.png") %>
       <%= "InfoPower International" %>
     </div>
     <div id="columns" >
@@ -61,6 +82,9 @@
         <%= yield %>
       </div>
       <div id="rside">
+       <div id="submenu">
+         <%= render "pages/rsubpage" %>
+       </div>
       </div>
     </div>
   </body>

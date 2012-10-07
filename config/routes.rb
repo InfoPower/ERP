@@ -29,6 +29,8 @@ Infotree::Application.routes.draw do
 
   get "sforms/BOM400"
 
+  get "sforms/BOM002"
+
   get "sforms/CAP400"
 
   get "sforms/COS400"

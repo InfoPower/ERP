@@ -12,7 +12,7 @@
 
 $("li.h").hover(
       function () {
-     //   $(this).append($("<span>***</span>"));
+     
          var t = $(this).attr('id');
          if (t.substr(0,1) == "C") {
             var l = t.substr(5);
@@ -23,46 +23,49 @@ $("li.h").hover(
            }
           var x = 'li.#' + l;
          $(this).prop('title', $(x).text());
-      //   alert($(x).text());
+      
       }, 
       function () {
         $(this).find("span:last").remove();
       }
     );
 
-
-    $("#menu")
+$("#menu")
         .jstree({ "plugins" : ["themes","html_data","ui","cookies"],
                   "cookies" : { "save_selected": false}
-          })
-        .bind("select_node.jstree", function (event, data) {
+   })
+.bind("select_node.jstree", function (event, data) {
+
+            
 	    var loc = data.rslt.obj.attr("href");
-            window.location = loc;
-	           
-            var parid = '#' + data.rslt.obj.attr("id");
-            var c = data.rslt.obj.attr("id").substr(0,1);
+            var nid = data.rslt.obj.attr("id");
             
-		
-		
-//            if (c == "C")
-//             {
-//             
-//              window.location = loc;
-//            
-//         
-//                 }
-//           else
-//		{
-//
-//                
-//              $('#menu').jstree("toggle_node",parid);
-//              
-//
-//		}
+            if (nid.substr(0,1) == "C")
+              { 
+              
+              window.location = loc;
+              
+              
+              }
+            else
+             {
+            $('#menu').jstree("toggle_node",data.rslt.obj);
+            var ptext = $('li.#' + nid.substr(6)).text();
+            var rephtml = '<h1>' + ptext + '</h1>';
+            $('#submain1').html(rephtml);
+            $('#submain2').css("display", "none");
             
-	    
-        })
+	       }
+
+		
+          })
+        
+
+
+
+
 });
+
 
     </script>
 
@@ -72,20 +75,24 @@ $("li.h").hover(
       <%= image_tag("info.png") %>
       <%= "InfoPower International" %>
     </div>
-    <div id="columns" >
+    
       <div id="lside" >
         <div id="menu">
          <%= render "pages/page" %>
         </div>
       </div>
       <div id="main" >
-        <%= yield %>
+        <div id="submain1">
+        </div>
+        <div id="submain2">
+           <%= yield %>
+        </div>
       </div>
       <div id="rside">
        <div id="submenu">
          <%= render "pages/rsubpage" %>
        </div>
       </div>
-    </div>
+    
   </body>
 </html>

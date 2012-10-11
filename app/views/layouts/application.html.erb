@@ -10,6 +10,8 @@
       
   $(document).ready(function(){
 
+
+
 $("li.h").hover(
       function () {
      
@@ -31,19 +33,27 @@ $("li.h").hover(
     );
 
 $("#menu")
-        .jstree({ "plugins" : ["themes","html_data","ui","cookies"],
-                  "cookies" : { "save_selected": false}
+        .jstree({ "plugins" : ["themes","html_data","ui","cookies"]
    })
+
 .bind("select_node.jstree", function (event, data) {
 
             
 	    var loc = data.rslt.obj.attr("href");
             var nid = data.rslt.obj.attr("id");
+            var checknode = $.cookie('node');
+            
             
             if (nid.substr(0,1) == "C")
               { 
               
-              window.location = loc;
+	      if (checknode != nid)
+
+               {
+
+                  $.cookie('node',nid);
+                  window.location = loc;
+               }
               
               
               }
@@ -54,15 +64,16 @@ $("#menu")
             var rephtml = '<h1>' + ptext + '</h1>';
             $('#submain1').html(rephtml);
             $('#submain2').css("display", "none");
+            $.cookie('node',nid);
             
 	       }
 
 		
-          })
+          });
         
 
 
-
+ 
 
 });
 
@@ -93,6 +104,6 @@ $("#menu")
          <%= render "pages/rsubpage" %>
        </div>
       </div>
-    
+   
   </body>
 </html>

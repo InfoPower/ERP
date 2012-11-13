@@ -1,0 +1,45 @@
+<%= form_for(@unit_of_measure_conversion) do |f| %>
+  <% if @unit_of_measure_conversion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@unit_of_measure_conversion.errors.count, "error") %> prohibited this unit_of_measure_conversion from being saved:</h2>
+
+      <ul>
+      <% @unit_of_measure_conversion.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :conversion_factor %><br />
+    <%= f.text_field :conversion_factor, :size => 10 %>
+  </div>
+  <div class="field">
+    <%= f.label :primary_uom %><br />
+    <%= f.collection_select :primary_uom_id, UnitOfMeasure.all(:order => "uom_desc"), :id, :uom_desc %>
+  </div>
+  <div class="field">
+    <%= f.label :secondary_uom %><br />
+    <%= f.collection_select :secondary_uom_id, UnitOfMeasure.all(:order => "uom_desc"), :id, :uom_desc %>
+  </div>
+  <div class="field">
+    <%= f.label :item_no %><br />
+    <%= f.text_field :item_no, :size => 25 %>
+  </div>
+  <div class="field">
+    <%= f.label :from_effective_date %><br />
+    <%= f.date_select :from_effective_date %>
+  </div>
+  <div class="field">
+    <%= f.label :to_effective_date %><br />
+    <%= f.date_select :to_effective_date %>
+  </div>
+  <div class="field">
+    <%= f.label :comments %><br />
+    <%= f.text_area :comments, :rows => 5, :cols => 25 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

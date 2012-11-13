@@ -1,0 +1,54 @@
+<h1>Listing Unit Of Measure Conversions</h1>
+
+<% if @unit_of_measure_conversions.empty? %>
+  <%= "There are no Unit Of Measure Conversions created." %>
+  
+<% else %>
+
+<%= form_tag edit_individual_unit_of_measure_conversions_path do %>
+
+<table id="rindex">
+  <tr>
+    <th><%= check_box_tag('check_all', '1', false, :onClick => "myCheckAll($(this).prop('checked')); ") %></th>
+    <th>Conversion Factor</th>
+    <th>Primary Uom</th>
+    <th>Secondary Uom</th>
+    <th>Item No.</th>
+    <th>From Effective Date</th>
+    <th>To Effective Date</th>
+    <th>Comments</th>
+  </tr>
+
+<% @unit_of_measure_conversions.each_with_index do |uomc, i| %>
+  <% if i.even? %>
+      <% w='even' %>
+      <tr class="alt">
+    <% else %>
+      <% w='odd' %>
+      <tr>
+    <% end %>
+    <td><%= check_box_tag "unit_of_measure_conversion_ids[]", uomc.id %></td>
+    <td><%= uomc.conversion_factor %></td>
+    <td><%= uomc.puoms.uom %></td>
+    <td><%= uomc.suoms.uom %></td>
+    <td><%= uomc.item_no %></td>
+    <td><%= uomc.from_effective_date %></td>
+    <td><%= uomc.to_effective_date %></td>
+    <td><%= uomc.comments %></td>
+  </tr>
+<% end %>
+</table>
+
+<p><%= submit_tag "Edit Checked", :name => 'edit' %>
+   <%= submit_tag "Show Checked", :name => 'details' %>
+   <%= submit_tag "Delete Checked", :name => 'delete', :confirm => "Are you sure you want to delete these?" %>
+</p>
+
+
+<% end %>
+
+<% end %>
+
+<br />
+
+<%= link_to 'New Unit of measure conversion', new_unit_of_measure_conversion_path %>

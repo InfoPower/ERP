@@ -1,0 +1,41 @@
+<h1>Editing Units Of Measure</h1>
+
+  <%= form_tag update_individual_unit_of_measures_path, :method => :put do %>
+
+<table>
+  <tr>
+    <th>Code</th>
+    <th>Description</th>
+    <th>Comments</th>
+  </tr>
+
+  
+    <% @unit_of_measures.each do |uom| %>
+
+    <%= hidden_field_tag 'cur_page', params[:cur_page] %>
+
+      <%= fields_for "uoms[]", uom do |f| %>
+
+     <tr>
+    <td><%= f.text_field :uom, :size => 10 %></td>
+
+    <td><%= f.text_field :uom_desc, :size => 30 %></td>
+
+    <td><%= f.text_area :comments, :rows => 5, :cols => 25 %><td>
+
+
+   </tr> 
+
+      <% end %>
+  
+    <% end %>  
+
+
+
+</table>
+
+  <p> <%= submit_tag "Submit" %></p>
+
+  <% end %>
+
+<%= link_to 'Back', unit_of_measures_path(:page => params[:cur_page]) %>

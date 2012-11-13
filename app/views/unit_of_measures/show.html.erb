@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Uom:</b>
+  <%= @unit_of_measure.uom %>
+</p>
+
+<p>
+  <b>Uom desc:</b>
+  <%= @unit_of_measure.uom_desc %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%= @unit_of_measure.comments %>
+</p>
+
+
+<%= link_to 'Edit', edit_unit_of_measure_path(@unit_of_measure) %> |
+<%= link_to 'Back', unit_of_measures_path %>

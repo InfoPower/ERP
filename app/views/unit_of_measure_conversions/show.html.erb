@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Conversion factor:</b>
+  <%= @unit_of_measure_conversion.conversion_factor %>
+</p>
+
+<p>
+  <b>Primary uom:</b>
+  <%= @unit_of_measure_conversion.puoms.uom_desc %>
+</p>
+
+<p>
+  <b>Secondary uom id:</b>
+  <%= @unit_of_measure_conversion.suoms.uom_desc %>
+</p>
+
+<p>
+  <b>Item no:</b>
+  <%= @unit_of_measure_conversion.item_no %>
+</p>
+
+<p>
+  <b>From effective date:</b>
+  <%= @unit_of_measure_conversion.from_effective_date %>
+</p>
+
+<p>
+  <b>To effective date:</b>
+  <%= @unit_of_measure_conversion.to_effective_date %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%= @unit_of_measure_conversion.comments %>
+</p>
+
+
+<%= link_to 'Edit', edit_unit_of_measure_conversion_path(@unit_of_measure_conversion) %> |
+<%= link_to 'Back', unit_of_measure_conversions_path %>

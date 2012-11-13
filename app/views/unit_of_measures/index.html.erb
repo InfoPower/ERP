@@ -1,0 +1,50 @@
+<h1>Listing Units Of Measure</h1>
+
+<%= paginate @unit_of_measures %>
+
+</br> 
+
+<% if @unit_of_measures.empty? %>
+  <% msg = "There are no Units Of Measure created." %>
+  <%= msg %>
+<% else %>
+
+<%= form_tag edit_individual_unit_of_measures_path do %>
+
+<table id="rindex">
+  <tr>
+    <th><%= check_box_tag('check_all', '1', false, :onClick => "myCheckAll($(this).prop('checked')); ") %></th>
+    <th>Uom</th>
+    <th>Uom desc</th>
+    <th>Comments</th>
+  </tr>
+
+<% @unit_of_measures.each_with_index do |unit_of_measure, i| %>
+  <% if i.even? %>
+      <% w='even' %>
+      <tr class="alt">
+    <% else %>
+      <% w='odd' %>
+      <tr>
+    <% end %>
+    <%= hidden_field_tag 'cur_page', params[:page] %>
+    <td><%= check_box_tag "unit_of_measure_ids[]", unit_of_measure.id %></td>
+    <td><%= unit_of_measure.uom %></td>
+    <td><%= unit_of_measure.uom_desc %></td>
+    <td><%= unit_of_measure.comments %></td>
+  </tr>
+<% end %>
+</table>
+
+<p><%= submit_tag "Edit Checked", :name => 'edit' %>
+   <%= submit_tag "Show Checked", :name => 'details' %>
+   <%= submit_tag "Delete Checked", :name => 'delete', :confirm => "Are you sure you want to delete these?" %>
+</p>
+
+
+<% end %>
+
+<% end %>
+<br />
+
+<%= link_to 'New Unit of measure', new_unit_of_measure_path %>

@@ -1,4 +1,23 @@
 Infotree::Application.routes.draw do
+  resources :unit_of_measure_conversions do
+    collection do
+      post 'edit_individual'
+      put 'update_individual'
+    end
+  end 
+
+  match '/sforms/GMC002' => 'unit_of_measure_conversions#index'
+
+  resources :unit_of_measures do
+    collection do
+      post 'edit_individual'
+      put 'update_individual'
+    end
+  end 
+
+
+  match '/sforms/GMC001' => 'unit_of_measures#index'
+
   get "welcome/index"
 
   get "sforms/MNT001"
@@ -64,6 +83,8 @@ Infotree::Application.routes.draw do
   get "sforms/GMC400"
 
   get "sforms/QAS400"
+
+  
 
   resources :pages
 

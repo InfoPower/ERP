@@ -1,0 +1,44 @@
+<h1>Unit Of Measure Conversion Details</h1>
+
+<table id="rindex">
+  <tr>
+    
+    <th>Conversion Factor</th>
+    <th>Primary Uom</th>
+    <th>Secondary Uom</th>
+    <th>Item No.</th>
+    <th>From Effective Date</th>
+    <th>To Effective Date</th>
+    <th>Comments</th>
+  </tr>
+
+<% @unit_of_measure_conversions.each_with_index do |uomc, i| %>
+  <% if i.even? %>
+      <% w='even' %>
+      <tr class="alt">
+    <% else %>
+      <% w='odd' %>
+      <tr>
+    <% end %>
+    
+    <td><%= uomc.conversion_factor %></td>
+    <td><%= uomc.puoms.uom_desc %></td>
+    <td><%= uomc.suoms.uom_desc %></td>
+    <td><%= uomc.item_no %></td>
+    <td><%= uomc.from_effective_date %></td>
+    <td><%= uomc.to_effective_date %></td>
+    <td><%= uomc.comments %></td>
+    
+     
+  </tr>
+<% end %>
+</table>
+
+
+
+
+<%= link_to 'Back', unit_of_measure_conversions_path %>
+
+
+
+

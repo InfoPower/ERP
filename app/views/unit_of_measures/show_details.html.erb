@@ -1,0 +1,36 @@
+<h1>Unit Of Measure Details</h1>
+
+<table id="rindex">
+  <tr>
+    
+    <th>Code</th>
+    <th>Description</th>
+    <th>Comments</th>
+  </tr>
+
+<% @unit_of_measures.each_with_index do |uom, i| %>
+  <% if i.even? %>
+      <% w='even' %>
+      <tr class="alt">
+    <% else %>
+      <% w='odd' %>
+      <tr>
+    <% end %>
+    
+    <td><%= uom.uom %></td>
+    <td><%= uom.uom_desc %></td>
+    <td><%= uom.comments %></td>
+    
+     
+  </tr>
+<% end %>
+</table>
+
+
+
+
+<%= link_to 'Back', unit_of_measures_path(:page => params[:cur_page]) %>
+
+
+
+

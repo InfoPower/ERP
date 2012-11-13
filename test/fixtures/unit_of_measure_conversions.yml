@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  conversion_factor: 9.99
+  primary_uom: MyString
+  secondary_uom: MyString
+  item_no: MyString
+  from_effective_date: 2012-10-22
+  to_effective_date: 2012-10-22
+  comments: MyText
+
+two:
+  conversion_factor: 9.99
+  primary_uom: MyString
+  secondary_uom: MyString
+  item_no: MyString
+  from_effective_date: 2012-10-22
+  to_effective_date: 2012-10-22
+  comments: MyText

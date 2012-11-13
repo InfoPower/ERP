@@ -50,7 +50,7 @@ $("#menu")
 	      if (checknode != nid)
 
                {
-
+		  
                   $.cookie('node',nid);
                   window.location = loc;
                }
@@ -60,11 +60,17 @@ $("#menu")
             else
              {
             $('#menu').jstree("toggle_node",data.rslt.obj);
-            var ptext = $('li.#' + nid.substr(6)).text();
+            
+
+	    var ptext = $('li.#' + nid.substr(6)).text();
             var rephtml = '<h1>' + ptext + '</h1>';
             $('#submain1').html(rephtml);
             $('#submain2').css("display", "none");
+             
+            
             $.cookie('node',nid);
+
+		
             
 	       }
 
@@ -96,7 +102,7 @@ $("#menu")
         <div id="submain1">
         </div>
         <div id="submain2">
-           <%= yield %>
+          <%= yield %>
         </div>
       </div>
       <div id="rside">

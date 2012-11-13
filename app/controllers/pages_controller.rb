@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   # GET /pages
   # GET /pages.json
   def index
-    @pages = Page.paginate(:page => params[:page], :per_page => 12)
+    @pages = Page.order(:id).page(params[:page]).per(12)
    
     respond_to do |format|
       format.html # index.html.erb

@@ -1,8 +1,6 @@
 <h1>Listing pages</h1>
 
-<div class="digg_pagination">
-  <%= will_paginate %>
-</div>
+<%= paginate @pages %>
 
 <table>
   <tr>
@@ -30,9 +28,6 @@
 
 <br />
 
-<div class="digg_pagination">
-  <%= will_paginate %>
-</div>
 
 
 <%= link_to 'New Page', new_page_path %>
